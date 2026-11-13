@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fireworks — Home</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Roboto:wght@300;400;500&amp;family=Lilita+One&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0A0612}
+a{color:#FFFFFF;text-decoration:none}a:hover{color:#FFB3BF}
+.fw-nav{display:flex}
+.fw-burger{display:none}
+.fw-g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.fw-g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.fw-split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:64px;align-items:center}
+.fw-foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+@keyframes fwMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.fw-marquee{animation:fwMarquee 30s linear infinite}
+.fw-g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.fw-g5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px}
+.fw-video{display:grid;grid-template-columns:2fr 1fr;gap:24px}
+.fw-occ img{transition:transform .6s ease}.fw-occ:hover img{transform:scale(1.08)}
+.fw-combo{transition:transform .35s ease,box-shadow .35s ease}.fw-combo:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,0.45)}
+@keyframes fwPulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,0.55)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+.fw-wa{animation:fwPulse 2.4s ease-out infinite}.fw-wa:hover{color:#0B2E17;transform:scale(1.05)}
+@media (max-width:1100px){.fw-g5{grid-template-columns:repeat(3,minmax(0,1fr))}.fw-g3{grid-template-columns:repeat(2,minmax(0,1fr))}.fw-video{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){.fw-g5{grid-template-columns:repeat(2,minmax(0,1fr))}.fw-g3{grid-template-columns:minmax(0,1fr)}.fw-wa-label{display:none}}
+@keyframes fwSlide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes fwRise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fwGlow{0%,100%{box-shadow:0 0 0 rgba(227,17,47,0)}50%{box-shadow:0 0 34px rgba(227,17,47,0.45)}}
+.fw-viewport{scrollbar-width:none;cursor:grab;user-select:none;-webkit-user-select:none;overscroll-behavior-x:contain;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.fw-ccard{transition:transform .35s ease,box-shadow .35s ease}
+.fw-ccard img{transition:transform .6s ease}
+.fw-ccard:hover{transform:translateY(-10px);box-shadow:0 20px 50px rgba(227,17,47,0.35)}
+.fw-ccard:hover img{transform:scale(1.1)}
+.fw-cname{opacity:0;transition:opacity .35s ease}
+.fw-cname > span{transform:translateY(16px);transition:transform .35s ease}
+.fw-ccard:hover .fw-cname,.fw-ccard:focus-visible .fw-cname{opacity:1}
+.fw-ccard:hover .fw-cname > span,.fw-ccard:focus-visible .fw-cname > span{transform:translateY(0)}
+.fw-pcard{animation:fwRise 0.7s ease both;transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}
+.fw-pcard:hover{transform:translateY(-10px) scale(1.02);border-color:rgba(255,90,110,0.6);animation:fwGlow 1.8s ease-in-out infinite}
+.fw-pimg img{transition:transform .6s ease}
+.fw-pcard:hover .fw-pimg img{transform:scale(1.1) rotate(-1deg)}
+.fw-ptag{opacity:0;transform:translate(-50%,12px);transition:opacity .3s ease,transform .3s ease}
+.fw-pcard:hover .fw-ptag{opacity:1;transform:translate(-50%,0)}
+.fw-viewport::-webkit-scrollbar{display:none}
+.fw-viewport.fw-dragging{cursor:grabbing}
+.fw-viewport.fw-dragging a{pointer-events:none}
+@media (prefers-reduced-motion:reduce){.fw-marquee,.fw-pcard{animation:none}}
+.fw-hero{background:linear-gradient(180deg,rgba(8,4,20,0.75) 0%,rgba(8,4,20,0.45) 45%,rgba(8,4,24,0.92) 100%),url(/_blob/fa4ad7c3185bac90c0cc17c6a3a93d66) center/cover no-repeat}
+.fw-cta{background:linear-gradient(180deg,rgba(8,4,20,0.92),rgba(8,4,20,0.7),rgba(8,4,20,0.92)),url(/_blob/b4133cfc8c5abbc9e6c6d8d789230cd1) center/cover no-repeat}
+@media (max-width:1000px){.fw-g4{grid-template-columns:repeat(2,minmax(0,1fr))}.fw-split{grid-template-columns:minmax(0,1fr);gap:40px}.fw-foot{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){.fw-nav{display:none}.fw-burger{display:flex}}
+@media (max-width:640px){.fw-g4,.fw-g2,.fw-foot{grid-template-columns:minmax(0,1fr)}}
+@keyframes fwToast{from{opacity:0;transform:translate(-50%,20px)}to{opacity:1;transform:translate(-50%,0)}}
+.fw-toast{transform:translateX(-50%);animation:fwToast .3s ease both}
+@keyframes fwPop{0%{transform:scale(.4)}60%{transform:scale(1.25)}100%{transform:scale(1)}}
+.fw-badge{animation:fwPop .35s ease}
+.fw-step{display:flex;align-items:center;border-radius:999px;border:1.5px solid rgba(255,255,255,0.25);overflow:hidden}
+.fw-step button{width:44px;height:44px;border:0;background:transparent;color:#FFFFFF;font-size:22px;cursor:pointer}
+.fw-step button:hover{background:rgba(255,255,255,0.1)}
+.fw-step span{min-width:36px;text-align:center;font-weight:700;font-size:18px}
+@keyframes fwFade{from{opacity:0}to{opacity:1}}
+@keyframes fwUp{from{opacity:0;transform:translateY(30px) scale(.97)}to{opacity:1;transform:none}}
+.fw-modal{animation:fwFade .25s ease both}
+.fw-dialog{animation:fwUp .35s cubic-bezier(.2,.8,.2,1) both}
+.fw-dialog input:focus,.fw-dialog textarea:focus{outline:2px solid #FFD166;outline-offset:1px}
+@media (max-width:560px){.fw-enqform{grid-template-columns:minmax(0,1fr) !important}}
+.fwh-nav{display:flex}
+.fwh-burger{display:none}
+.fwh-dd{position:relative}
+.fwh-mega{position:absolute;top:100%;left:50%;padding-top:18px;transform:translateX(-50%) translateY(8px);opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease,visibility .2s;z-index:80}
+.fwh-dd:hover .fwh-mega,.fwh-dd:focus-within .fwh-mega{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.fwh-dd:hover .fwh-chev,.fwh-dd:focus-within .fwh-chev{transform:rotate(180deg)}
+.fwh-chev{transition:transform .2s ease}
+.fwh-tile img{transition:transform .4s ease}.fwh-tile:hover img{transform:scale(1.08)}
+.fwh-link{position:relative;padding:6px 0}
+.fwh-link::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:#FF5A6E;transform:scaleX(0);transition:transform .25s ease}
+.fwh-link:hover::after,.fwh-link[aria-current="page"]::after{transform:scaleX(1)}
+@media (max-width:1280px){.fwh-enq{display:none !important}}
+@media (max-width:1100px){.fwh-nav{display:none}.fwh-burger{display:flex}}
+.fw-journey .fw-jspark{left:100%}
+.fw-journey.fw-armed .fw-jfill{transform:scaleX(0);transform-origin:left center;transition:transform 2.4s cubic-bezier(.4,0,.2,1)}
+.fw-journey.fw-armed .fw-jspark{left:0;opacity:0;transition:left 2.4s cubic-bezier(.4,0,.2,1),opacity .3s ease}
+.fw-journey.fw-armed.fw-lit .fw-jfill{transform:scaleX(1)}
+.fw-journey.fw-armed.fw-lit .fw-jspark{left:100%;opacity:1;animation:fwSparkGlow .5s ease-in-out infinite alternate}
+.fw-journey.fw-armed .fw-jitem{opacity:0;transform:translateY(28px) scale(.96);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.fw-journey.fw-armed.fw-lit .fw-jitem{opacity:1;transform:none}
+.fw-journey.fw-lit .fw-jdot{animation:fwDotPop .6s ease both;animation-delay:inherit}
+@keyframes fwSparkGlow{from{transform:scale(.8);box-shadow:0 0 12px 4px rgba(255,209,102,.6)}to{transform:scale(1.25);box-shadow:0 0 26px 10px rgba(255,138,61,.7)}}
+@keyframes fwDotPop{0%{box-shadow:0 0 0 8px rgba(13,6,24,1),0 0 0 8px rgba(255,209,102,.0)}50%{box-shadow:0 0 0 8px rgba(13,6,24,1),0 0 30px 14px rgba(255,209,102,.45)}100%{box-shadow:0 0 0 8px rgba(13,6,24,1),0 0 0 0 rgba(255,209,102,0)}}
+.fw-jitem{transition:transform .3s ease}.fw-journey.fw-lit .fw-jitem:hover{transform:translateY(-6px)}
+@media (max-width:900px){.fw-jline{display:none}.fw-jgrid{grid-template-columns:minmax(0,1fr) !important;gap:0 !important;border-left:3px solid rgba(255,209,102,.4);margin-left:34px !important;padding-left:0 !important}.fw-jitem{flex-direction:row !important;flex-wrap:wrap;align-items:center;padding:0 0 32px 0;margin-left:-38px}.fw-jitem > span:nth-child(n+3){flex-basis:100%;padding-left:88px}}
+@media (prefers-reduced-motion:reduce){.fw-journey.fw-armed .fw-jfill,.fw-journey.fw-armed .fw-jitem,.fw-journey.fw-armed .fw-jspark{transition:none}}
+</style>
+</helmet>
+<div style="font-family: 'Roboto', system-ui, sans-serif; color: #F5F3FA; background: linear-gradient(160deg, #0E0410 0%, #07061A 55%, #0B0A3A 100%); min-height: 100vh;">
+
+<!-- HEADER -->
+<header style="position: relative; z-index: 40; width: 100%; box-sizing: border-box; margin: 0; padding: 22px clamp(16px, 4vw, 72px); display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px; flex: none;" aria-label="Home">
+<svg width="52" height="52" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,4 61,37 96,37 68,58 78,92 50,71 22,92 32,58 4,37 39,37" fill="{{accent}}" stroke="#FFD166" stroke-width="4" stroke-linejoin="round"></polygon><circle cx="50" cy="52" r="10" fill="#FFFFFF"></circle></svg>
+<span style="display: flex; flex-direction: column; line-height: 1;"><span style="font-family: 'Lilita One', 'Nunito', sans-serif; font-size: 30px; color: #FFFFFF; letter-spacing: 0.5px;">{{brand}}</span><span style="font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 12px; letter-spacing: 4px; color: #FFD166; margin-top: 4px;">FIREWORKS</span></span>
+</a>
+<nav class="fwh-nav" aria-label="Main" style="align-items: center; gap: 28px; font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 700;">
+<a href="Main.dc.html" class="fwh-link" aria-current="page">Home</a>
+<div class="fwh-dd">
+<a href="Category.dc.html" class="fwh-link" aria-haspopup="true" style="display: flex; align-items: center; gap: 6px;">Products<svg class="fwh-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></a>
+<div class="fwh-mega">
+<div style="width: 760px; padding: 24px; border-radius: 22px; background: #160C2C; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 30px 70px rgba(0,0,0,0.6); font-family: 'Roboto', sans-serif;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;"><span style="font-size: 13px; letter-spacing: 3px; color: #FFD166;">SHOP BY CATEGORY</span><a href="Category.dc.html" style="font-size: 15px; font-weight: 600; color: #FFB3BF;">View all products →</a></div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;"><a href="Category.dc.html" class="fwh-tile" style="display: flex; flex-direction: column; gap: 8px; color: #FFFFFF;"><span style="display: block; aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden; background: #FFFFFF;"><img src="/_blob/fa4ad7c3185bac90c0cc17c6a3a93d66" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></span><span style="font-size: 15px; font-weight: 600;">All Products</span></a><a href="NewArrivals.dc.html" class="fwh-tile" style="display: flex; flex-direction: column; gap: 8px; color: #FFFFFF;"><span style="display: block; aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden; background: #FFFFFF;"><img src="/_blob/3e79f52ce9d345662d617d1436652153" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></span><span style="font-size: 15px; font-weight: 600;">New Arrivals</span></a><a href="Category.dc.html" class="fwh-tile" style="display: flex; flex-direction: column; gap: 8px; color: #FFFFFF;"><span style="display: block; aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden; background: #FFFFFF;"><img src="/_blob/02d9c1923a81e03951f252bc89af3d42" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></span><span style="font-size: 15px; font-weight: 600;">Kids Fancy</span></a><a href="Category.dc.html" class="fwh-tile" style="display: flex; flex-direction: column; gap: 8px; color: #FFFFFF;"><span style="display: block; aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden; background: #FFFFFF;"><img src="/_blob/b4133cfc8c5abbc9e6c6d8d789230cd1" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></span><span style="font-size: 15px; font-weight: 600;">Aerial & Rockets</span></a><a href="Category.dc.html" class="fwh-tile" style="display: flex; flex-direction: column; gap: 8px; color: #FFFFFF;"><span style="display: block; aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden; background: #FFFFFF;"><img src="/_blob/609ec5c1049b9af1f731f191f45a59dd" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></span><span style="font-size: 15px; font-weight: 600;">Traditional</span></a><a href="Fountains.dc.html" class="fwh-tile" style="display: flex; flex-direction: column; gap: 8px; color: #FFFFFF;"><span style="display: block; aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden; background: #FFFFFF;"><img src="/_blob/9ea557fff8ba1686eadfa62176359a69" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></span><span style="font-size: 15px; font-weight: 600;">Fountains</span></a><a href="Category.dc.html" class="fwh-tile" style="display: flex; flex-direction: column; gap: 8px; color: #FFFFFF;"><span style="display: block; aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden; background: #FFFFFF;"><img src="/_blob/515dabd19c73980ca4524edaedbd9197" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></span><span style="font-size: 15px; font-weight: 600;">Sparklers</span></a><a href="EliteSeries.dc.html" class="fwh-tile" style="display: flex; flex-direction: column; gap: 8px; color: #FFFFFF;"><span style="display: block; aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden; background: #FFFFFF;"><img src="/_blob/83b772447902227e94c1b897887c4185" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></span><span style="font-size: 15px; font-weight: 600;">Elite Series</span></a></div>
+</div>
+</div>
+</div>
+<a href="Combos.dc.html" class="fwh-link">Combo Boxes</a><a href="Offers.dc.html" class="fwh-link">Offers</a><a href="Bulk.dc.html" class="fwh-link">Bulk Orders</a><a href="Gallery.dc.html" class="fwh-link">Gallery</a><a href="Contact.dc.html" class="fwh-link">Contact</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 12px; flex: none;">
+<a href="Cart.dc.html" aria-label="Cart, {{cartCount}} items" style="position: relative; width: 52px; height: 52px; flex: none; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg>
+<sc-if value="{{hasCart}}" hint-placeholder-val="{{ false }}"><span class="fw-badge" style="position: absolute; top: -4px; right: -4px; min-width: 22px; height: 22px; padding: 0 6px; box-sizing: border-box; border-radius: 999px; background: {{accent}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center;">{{cartCount}}</span></sc-if>
+</a>
+<a href="#enquire" onClick="{{openEnq}}" class="fwh-enq" style="display: flex; align-items: center; min-height: 48px; padding: 0 24px; border: 1.5px solid {{accent}}; border-radius: 999px; font-family: 'Nunito', sans-serif; font-weight: 700; letter-spacing: 1.5px; font-size: 14px; white-space: nowrap;">ENQUIRE NOW</a>
+<button class="fwh-burger" onClick="{{toggleMenu}}" aria-label="Open menu" style="width: 48px; height: 48px; align-items: center; justify-content: center; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; color: #FFFFFF; cursor: pointer;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+</div>
+</header>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<nav aria-label="Mobile" style="position: relative; z-index: 40; margin: 0 16px 16px; padding: 12px 24px 20px; display: flex; flex-direction: column; background: #160C2A; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; font-family: 'Nunito', sans-serif; font-size: 18px; font-weight: 700;">
+<a href="Main.dc.html" style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08);">Home</a><a href="Category.dc.html" style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08);">Products</a><a href="Combos.dc.html" style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08);">Combo Boxes</a><a href="Offers.dc.html" style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08);">Offers</a><a href="Bulk.dc.html" style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08);">Bulk Orders</a><a href="Gallery.dc.html" style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08);">Gallery</a><a href="Contact.dc.html" style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08);">Contact</a>
+<span style="margin-top: 16px; font-size: 13px; letter-spacing: 3px; color: #FFD166;">CATEGORIES</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; font-weight: 600;"><a href="Category.dc.html" style="padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,0.08); font-size: 15px;">All Products</a><a href="NewArrivals.dc.html" style="padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,0.08); font-size: 15px;">New Arrivals</a><a href="Category.dc.html" style="padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,0.08); font-size: 15px;">Kids Fancy</a><a href="Category.dc.html" style="padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,0.08); font-size: 15px;">Aerial & Rockets</a><a href="Category.dc.html" style="padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,0.08); font-size: 15px;">Traditional</a><a href="Fountains.dc.html" style="padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,0.08); font-size: 15px;">Fountains</a><a href="Category.dc.html" style="padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,0.08); font-size: 15px;">Sparklers</a><a href="EliteSeries.dc.html" style="padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,0.08); font-size: 15px;">Elite Series</a></div>
+<a href="#enquire" onClick="{{openEnq}}" style="margin-top: 16px; display: flex; justify-content: center; align-items: center; min-height: 50px; border-radius: 999px; background: {{accent}};">Enquire Now</a>
+</nav>
+</sc-if>
+
+
+<!-- HERO -->
+<section class="fw-hero" style="position: relative; overflow: hidden; margin-top: -100px; padding: 220px 24px 160px; text-align: center;">
+<video class="fw-hero-video" src="/_blob/8be3b87555e2cff9fdacef297229dc4a" autoplay="" muted="" loop="" playsinline="" preload="auto" aria-hidden="true" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"></video>
+<div aria-hidden="true" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(8,4,20,0.7) 0%, rgba(8,4,20,0.35) 45%, rgba(8,4,24,0.95) 100%);"></div>
+<div style="position: relative; max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 28px;">
+<p style="margin: 0; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 4px; color: #FFD166;">SINCE 2010 · JAUNPUR, UTTAR PRADESH</p>
+<h1 style="margin: 0; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: clamp(42px, 7vw, 104px); line-height: 1.05; letter-spacing: -1px;">Light Up Every Festival</h1>
+<p style="margin: 0; max-width: 820px; font-weight: 300; font-size: clamp(17px, 1.6vw, 22px); line-height: 1.6; color: #D8D3E6;">{{brand}} Fireworks: factory-direct crackers. Kids fancy, fountains, aerial novelties and gift boxes for every occasion.</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 12px;">
+<a href="#enquire" onClick="{{openEnq}}" style="display: flex; align-items: center; min-height: 56px; padding: 0 36px; background: {{accent}}; border-radius: 999px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 18px;">Enquire Now</a>
+<a href="NewArrivals.dc.html" style="display: flex; align-items: center; min-height: 56px; padding: 0 36px; border: 1.5px solid {{accent}}; border-radius: 999px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 18px; background: rgba(10,6,18,0.4);">See New Arrivals</a>
+</div>
+</div>
+</section>
+
+<!-- CATEGORY CAROUSEL -->
+<section aria-label="Shop by category" style="position: relative; width: 100%; box-sizing: border-box; margin: 0; padding: 80px 0 40px;">
+<div class="fw-viewport" data-dir="rev" style="overflow-x: auto; overflow-y: hidden; padding: 12px 0 24px;">
+<div class="fw-track fw-track-cat" style="display: flex; width: max-content;">
+<sc-for list="{{categoryLoop}}" as="c" hint-placeholder-count="8">
+<a href="Category.dc.html" class="fw-ccard" draggable="false" aria-label="{{c.label}}" style="flex: 0 0 auto; width: clamp(220px, 18vw, 300px); aspect-ratio: 3 / 4; margin-right: 24px; position: relative; overflow: hidden; border-radius: 22px; background: #140C24; display: block;">
+<img src="{{c.img}}" alt="" draggable="false" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+<span class="fw-cname" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 12px; padding: 24px 16px 28px; box-sizing: border-box; background: linear-gradient(180deg, rgba(10,6,18,0) 30%, rgba(10,6,18,0.88) 100%);">
+<span style="font-family: 'Lilita One', sans-serif; font-size: clamp(22px, 1.9vw, 32px); line-height: 1.05; text-align: center; color: #FFFFFF; letter-spacing: 0.5px;">{{c.label}}</span>
+<span style="padding: 8px 18px; border-radius: 999px; background: {{accent}}; color: #FFFFFF; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 15px;">Explore</span>
+</span>
+</a>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- SHOP BY OCCASION -->
+<section style="width: 100%; box-sizing: border-box; padding: 60px clamp(16px, 4vw, 72px) 40px;">
+<div style="text-align: center; padding-bottom: 48px;"><p style="margin: 0 0 12px; display: inline-flex; align-items: center; gap: 10px; font-size: 16px; letter-spacing: 5px; color: #D8D3E6;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #6C5CF0;"></span><span style="width: 6px; height: 6px; border-radius: 50%; background: #FFFFFF;"></span>SHOP BY OCCASION</p><h2 style="margin: 0; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: clamp(34px, 4.5vw, 64px);">What Are You Celebrating?</h2></div>
+<div class="fw-g5">
+<sc-for list="{{occasions}}" as="o" hint-placeholder-count="5">
+<a href="Category.dc.html" class="fw-occ" style="position: relative; display: block; aspect-ratio: 4 / 5; border-radius: 24px; overflow: hidden; background: #140C24;">
+<img src="{{o.img}}" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+<span style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(10,6,18,0.05) 35%, rgba(10,6,18,0.9) 100%);"></span>
+<span style="position: absolute; left: 24px; right: 24px; bottom: 24px; display: flex; flex-direction: column; gap: 6px;">
+<span style="font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 28px; color: #FFFFFF;">{{o.name}}</span>
+<span style="font-size: 16px; line-height: 1.45; color: #E4DFEE;">{{o.text}}</span>
+<span style="margin-top: 8px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 16px; color: #FFD166;">Shop now →</span>
+</span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<!-- QUICK LINK CARDS -->
+<section id="safety" style="width: 100%; box-sizing: border-box; margin: 0; padding: 40px clamp(16px, 4vw, 72px) 80px;">
+<div class="fw-g4">
+<sc-for list="{{quick}}" as="q" hint-placeholder-count="4">
+<a href="{{q.href}}" style="display: flex; flex-direction: column; padding: 48px 40px 36px; border-radius: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)); border: 1px solid rgba(255,255,255,0.07); min-height: 340px; box-sizing: border-box;">
+<span style="font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 32px; color: #FFFFFF;">{{q.title}}</span>
+<span style="margin-top: 20px; font-weight: 300; font-size: 19px; line-height: 1.6; color: #C9C3D8;">{{q.text}}</span>
+<span style="margin-top: auto; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: space-between; font-family: 'Nunito', sans-serif; font-size: 19px; font-weight: 600; color: #FFFFFF;">{{q.cta}}<span style="width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid {{accent}}; display: flex; align-items: center; justify-content: center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span></span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<!-- WHO WE ARE -->
+<section style="width: 100%; box-sizing: border-box; margin: 0; padding: 60px clamp(16px, 4vw, 72px) 100px;">
+<div class="fw-split">
+<img src="/_blob/2f199d45b13d691e357b88727503a284" alt="Colourful festival rockets with golden sparks" style="width: 100%; aspect-ratio: 1 / 1; border-radius: 28px; object-fit: cover; display: block;">
+<div style="display: flex; flex-direction: column; gap: 24px;">
+<p style="margin: 0; display: flex; align-items: center; gap: 10px; font-size: 16px; letter-spacing: 5px; color: #D8D3E6;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #6C5CF0;"></span><span style="width: 6px; height: 6px; border-radius: 50%; background: #FFFFFF;"></span>WHO ARE WE</p>
+<h2 style="margin: 0; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: clamp(34px, 4vw, 60px); line-height: 1.12;">About {{brand}} Fireworks — A Legacy of Light Since 2010.</h2>
+<p style="margin: 0; font-weight: 300; font-size: 20px; line-height: 1.7; color: #CFC9DD;">Founded in Jaunpur by [FOUNDER NAME], {{brand}} has grown from a small family enterprise into a trusted fireworks manufacturer. [Add 2–3 lines about your history, quality checks and who runs the company today.]</p>
+<p style="margin: 0; font-weight: 300; font-size: 20px; line-height: 1.7; color: #CFC9DD;">Our operations reach [STATES / REGIONS]. [Add a line about your dealer network or how customers can buy.]</p>
+<a href="#about" style="align-self: flex-start; display: flex; align-items: center; min-height: 56px; padding: 0 36px; border: 1.5px solid {{accent}}; border-radius: 999px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 18px;">See More</a>
+</div>
+</div>
+</section>
+
+<!-- POPULAR PRODUCTS -->
+<section style="position: relative; width: 100%; box-sizing: border-box; margin: 0; padding: 40px 0 100px;">
+<div style="text-align: center; padding: 0 24px 56px;">
+<p style="margin: 0 0 12px; display: inline-flex; align-items: center; gap: 10px; font-size: 16px; letter-spacing: 5px; color: #D8D3E6;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #6C5CF0;"></span><span style="width: 6px; height: 6px; border-radius: 50%; background: #FFFFFF;"></span>EXPLORE PRODUCTS</p>
+<h2 style="margin: 0; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: clamp(34px, 4.5vw, 64px);">Popular Products We Offer</h2>
+</div>
+<div class="fw-viewport" data-dir="fwd" style="overflow-x: auto; overflow-y: hidden; padding: 12px 0 24px;">
+<div class="fw-track" style="display: flex; width: max-content;">
+<sc-for list="{{productLoop}}" as="p" hint-placeholder-count="8">
+<a href="Product.dc.html" class="fw-pcard" draggable="false" style="flex: 0 0 auto; width: clamp(230px, 19vw, 320px); margin-right: 24px; border-radius: 24px; background: linear-gradient(180deg, #1A0A2A, #12082A); border: 1px solid rgba(255,255,255,0.06); padding: 20px 20px 28px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+<span class="fw-pimg" style="display: block; width: 100%; aspect-ratio: 1 / 1; border-radius: 16px; overflow: hidden; background: #FFFFFF; position: relative;">
+<img src="{{p.img}}" alt="{{p.name}}" draggable="false" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+<span class="fw-ptag" style="position: absolute; left: 50%; bottom: 14px; padding: 8px 18px; border-radius: 999px; background: {{accent}}; color: #FFFFFF; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 15px; white-space: nowrap;">View details</span>
+</span>
+<span style="font-family: 'Roboto', sans-serif; font-size: 21px; line-height: 1.35; text-align: center; color: #FFFFFF;">{{p.name}}</span>
+</a>
+</sc-for>
+</div>
+</div>
+<p style="margin: 8px 0 0; text-align: center; font-size: 15px; color: #B9B3C9;">Swipe or drag to browse</p>
+</section>
+
+<!-- BUDGET COMBO BOXES -->
+<section id="combos" style="width: 100%; box-sizing: border-box; padding: 40px clamp(16px, 4vw, 72px) 100px;">
+<div style="text-align: center; padding-bottom: 48px;"><p style="margin: 0 0 12px; display: inline-flex; align-items: center; gap: 10px; font-size: 16px; letter-spacing: 5px; color: #D8D3E6;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #6C5CF0;"></span><span style="width: 6px; height: 6px; border-radius: 50%; background: #FFFFFF;"></span>COMBO BOXES</p><h2 style="margin: 0; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: clamp(34px, 4.5vw, 64px);">Celebrate Within Your Budget</h2><p style="margin: 16px auto 0; max-width: 720px; font-weight: 300; font-size: 20px; line-height: 1.6; color: #C9C3D8;">Ready-made boxes packed with a balanced mix — just pick your budget.</p></div>
+<div class="fw-g3" style="align-items: stretch;">
+<sc-for list="{{combos}}" as="b" hint-placeholder-count="3">
+<div class="fw-combo" style="position: relative; display: flex; flex-direction: column; gap: 20px; padding: 40px 36px; border-radius: 28px; background: {{b.bg}}; border: 2px solid {{b.border}};">
+<sc-if value="{{b.featured}}" hint-placeholder-val="{{ false }}"><span style="position: absolute; top: -16px; left: 36px; padding: 6px 16px; border-radius: 999px; background: #FFD166; color: #1A1030; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 14px; letter-spacing: 1px;">BEST FOR FAMILIES</span></sc-if>
+<span style="font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 22px; color: #FFFFFF;">{{b.name}}</span>
+<span style="font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 64px; line-height: 1; color: #FFFFFF;">{{b.price}}</span>
+<span style="font-size: 17px; color: #C9C3D8;">{{b.count}}</span>
+<ul style="margin: 0; padding: 20px 0 0; border-top: 1px solid rgba(255,255,255,0.12); list-style: none; display: flex; flex-direction: column; gap: 12px;">
+<sc-for list="{{b.items}}" as="it" hint-placeholder-count="4"><li style="display: flex; gap: 12px; align-items: center; font-size: 18px; color: #E4DFEE;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFD166" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>{{it}}</li></sc-for>
+</ul>
+<a href="#enquire" onClick="{{b.enquire}}" style="margin-top: auto; display: flex; align-items: center; justify-content: center; min-height: 56px; border-radius: 999px; background: {{b.btn}}; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 18px; color: #FFFFFF;">Enquire for this box</a>
+</div>
+</sc-for>
+</div>
+</section>
+
+<!-- OUR JOURNEY TIMELINE -->
+<section id="about" style="position: relative; overflow: hidden; width: 100%; box-sizing: border-box; padding: 100px clamp(16px, 4vw, 72px) 110px; background: radial-gradient(ellipse at 50% 0%, rgba(255,140,60,0.16), transparent 60%), linear-gradient(180deg, #0D0618 0%, #12082A 100%);">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; padding-bottom: 64px;">
+<div style="max-width: 760px; display: flex; flex-direction: column; gap: 14px;">
+<p style="margin: 0; font-size: 14px; letter-spacing: 4px; color: #FFD166;">OUR JOURNEY</p>
+<h2 style="margin: 0; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: clamp(34px, 4.4vw, 64px); line-height: 1.08;">15+ Years of Lighting Up Every Celebration</h2>
+<p style="margin: 0; font-weight: 300; font-size: 20px; line-height: 1.6; color: #C9C3D8;">From a single shop in Jaunpur to a trusted name for families, dealers and events across Uttar Pradesh.</p>
+</div>
+<a href="#enquire" onClick="{{openEnq}}" style="display: flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 30px; border-radius: 999px; background: {{accent}}; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 18px;">Let's Talk<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+<div class="fw-journey" style="position: relative;">
+<div class="fw-jline" aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 34px; height: 4px; border-radius: 4px; background: rgba(255,255,255,0.12);">
+<div class="fw-jfill" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 4px; background: linear-gradient(90deg, #FFD166, #FF8A3D, #FF3B5C);"></div>
+<span class="fw-jspark" style="position: absolute; top: 50%; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%; background: radial-gradient(circle, #FFFFFF 0%, #FFE08A 35%, rgba(255,138,61,0) 70%);"></span>
+</div>
+<ol class="fw-jgrid" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; position: relative;">
+<sc-for list="{{milestones}}" as="m" hint-placeholder-count="5">
+<li class="fw-jitem" style="display: flex; flex-direction: column; gap: 14px; transition-delay: {{m.delay}};">
+<span class="fw-jdot" style="width: 72px; height: 72px; border-radius: 50%; background: #1A0C2E; border: 3px solid {{m.ring}}; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 8px rgba(13,6,24,1);"><span style="font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 22px; color: #FFD166;">{{m.n}}</span></span>
+<span style="font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 36px; line-height: 1; color: {{m.yearColor}};">{{m.year}}</span>
+<span style="font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 21px; line-height: 1.25;">{{m.title}}</span>
+<span style="font-size: 16px; line-height: 1.55; color: #C9C3D8;">{{m.text}}</span>
+</li>
+</sc-for>
+</ol>
+</div>
+</section>
+
+<!-- WHY CHOOSE US + STATS -->
+<section style="width: 100%; box-sizing: border-box; margin: 0; padding: 40px clamp(16px, 4vw, 72px) 100px;">
+<div class="fw-split" style="align-items: start;">
+<div style="display: flex; flex-direction: column; gap: 24px; padding-right: 40px; border-right: 1px solid rgba(255,255,255,0.12);">
+<p style="margin: 0; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 17px; letter-spacing: 3px; color: #8F86F5;">WHY CHOOSE US?</p>
+<h2 style="margin: 0; font-family: 'Nunito', sans-serif; font-weight: 600; font-size: clamp(34px, 4vw, 60px); line-height: 1.15;">Why Families Trust Us Every Festival</h2>
+<p style="margin: 0; font-weight: 300; font-size: 21px; line-height: 1.7; color: #B9B3C9;">Since 2010, we have been lighting up Diwali, weddings and family celebrations across Jaunpur and Uttar Pradesh. Our range covers traditional crackers, kids’ fancy items, fountains, sparklers and elite sky shots — all chosen for colour, safety and value.</p>
+<ul style="margin: 8px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 20px;"><li style="display: flex; gap: 16px; align-items: flex-start;"><span style="flex: none; width: 40px; height: 40px; border-radius: 12px; background: rgba(167,116,242,0.15); display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C7A6FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 20px; color: #FFFFFF;">Tested before it reaches you</span><span style="font-size: 17px; line-height: 1.55; color: #B9B3C9;">Every product is checked for burn time, colour and safety before it is packed.</span></span></li><li style="display: flex; gap: 16px; align-items: flex-start;"><span style="flex: none; width: 40px; height: 40px; border-radius: 12px; background: rgba(167,116,242,0.15); display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C7A6FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 20px; color: #FFFFFF;">Factory-direct prices</span><span style="font-size: 17px; line-height: 1.55; color: #B9B3C9;">We sell straight from our stock in Jaunpur, so you skip the middlemen and save more.</span></span></li><li style="display: flex; gap: 16px; align-items: flex-start;"><span style="flex: none; width: 40px; height: 40px; border-radius: 12px; background: rgba(167,116,242,0.15); display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C7A6FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 20px; color: #FFFFFF;">Something for everyone</span><span style="font-size: 17px; line-height: 1.55; color: #B9B3C9;">From kids’ sparklers to grand wedding sky shots — one place for every celebration.</span></span></li></ul>
+</div>
+<div style="display: flex; flex-direction: column;">
+<sc-for list="{{stats}}" as="s" hint-placeholder-count="3">
+<div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: center; padding: 32px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+<div style="flex: 0 0 240px;">
+<div style="font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 72px; line-height: 1; color: #A774F2;">{{s.num}}</div>
+<div style="margin-top: 10px; font-weight: 500; font-size: 20px; color: #C9C3D8;">{{s.label}}</div>
+</div>
+<p style="flex: 1 1 240px; margin: 0; font-weight: 300; font-size: 19px; line-height: 1.6; color: #B9B3C9;">{{s.text}}</p>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- VIDEO GALLERY -->
+<section id="videos" style="width: 100%; box-sizing: border-box; padding: 60px clamp(16px, 4vw, 72px) 100px;">
+<div style="text-align: center; padding-bottom: 48px;"><p style="margin: 0 0 12px; display: inline-flex; align-items: center; gap: 10px; font-size: 16px; letter-spacing: 5px; color: #D8D3E6;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #6C5CF0;"></span><span style="width: 6px; height: 6px; border-radius: 50%; background: #FFFFFF;"></span>VIDEO GALLERY</p><h2 style="margin: 0; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: clamp(34px, 4.5vw, 64px);">Watch It Light Up</h2><p style="margin: 16px auto 0; max-width: 720px; font-weight: 300; font-size: 20px; line-height: 1.6; color: #C9C3D8;">See exactly how each product performs before you buy.</p></div>
+<div class="fw-video">
+<figure style="margin: 0; position: relative; border-radius: 28px; overflow: hidden; background: #000000;">
+<video src="/_blob/8be3b87555e2cff9fdacef297229dc4a" controls="" muted="" loop="" playsinline="" preload="metadata" style="width: 100%; height: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block;"></video>
+<figcaption style="position: absolute; left: 24px; top: 24px; padding: 8px 16px; border-radius: 999px; background: rgba(10,6,18,0.7); font-size: 16px; color: #FFFFFF;">Featured: Sky shot display</figcaption>
+</figure>
+<div style="display: flex; flex-direction: column; gap: 24px;">
+<sc-for list="{{clips}}" as="v" hint-placeholder-count="3">
+<a href="#videos" style="position: relative; flex: 1; min-height: 160px; display: block; border-radius: 22px; overflow: hidden;">
+<img src="{{v.img}}" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+<span style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, rgba(10,6,18,0.85), rgba(10,6,18,0.2));"></span>
+<span style="position: absolute; left: 24px; top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 16px;">
+<span style="width: 56px; height: 56px; border-radius: 50%; background: {{accent}}; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
+<span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 21px; color: #FFFFFF;">{{v.name}}</span><span style="font-size: 15px; color: #D8D3E6;">[Upload product clip]</span></span>
+</span>
+</a>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- SAFETY CHECKLIST -->
+<section id="safety-checklist" style="width: 100%; box-sizing: border-box; padding: 60px clamp(16px, 4vw, 72px) 100px;">
+<div style="text-align: center; padding-bottom: 48px;"><p style="margin: 0 0 12px; display: inline-flex; align-items: center; gap: 10px; font-size: 16px; letter-spacing: 5px; color: #D8D3E6;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #6C5CF0;"></span><span style="width: 6px; height: 6px; border-radius: 50%; background: #FFFFFF;"></span>SAFETY FIRST</p><h2 style="margin: 0; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: clamp(34px, 4.5vw, 64px);">Your Safety Checklist</h2><p style="margin: 16px auto 0; max-width: 720px; font-weight: 300; font-size: 20px; line-height: 1.6; color: #C9C3D8;">Six simple habits for a happy, accident-free celebration.</p></div>
+<div class="fw-g3">
+<div style="display: flex; gap: 20px; padding: 28px; border-radius: 22px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+<span style="flex: none; width: 64px; height: 64px; border-radius: 18px; background: rgba(255,209,102,0.12); display: flex; align-items: center; justify-content: center;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#FFD166" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"></path><path d="M9 12l2 2 4-4"></path></svg></span>
+<span style="display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 22px; color: #FFFFFF;">Buy from licensed sellers</span><span style="font-size: 17px; line-height: 1.55; color: #C9C3D8;">Only buy tested, labelled products from authorised dealers.</span></span>
+</div>
+<div style="display: flex; gap: 20px; padding: 28px; border-radius: 22px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+<span style="flex: none; width: 64px; height: 64px; border-radius: 18px; background: rgba(255,209,102,0.12); display: flex; align-items: center; justify-content: center;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#FFD166" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"></path></svg></span>
+<span style="display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 22px; color: #FFFFFF;">Light outdoors only</span><span style="font-size: 17px; line-height: 1.55; color: #C9C3D8;">Use an open space away from buildings, vehicles and dry leaves.</span></span>
+</div>
+<div style="display: flex; gap: 20px; padding: 28px; border-radius: 22px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+<span style="flex: none; width: 64px; height: 64px; border-radius: 18px; background: rgba(255,209,102,0.12); display: flex; align-items: center; justify-content: center;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#FFD166" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h12l-1.5 16h-9z"></path><path d="M6.5 9h11"></path></svg></span>
+<span style="display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 22px; color: #FFFFFF;">Keep water or sand ready</span><span style="font-size: 17px; line-height: 1.55; color: #C9C3D8;">Have a bucket of water or sand nearby to put out used crackers.</span></span>
+</div>
+<div style="display: flex; gap: 20px; padding: 28px; border-radius: 22px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+<span style="flex: none; width: 64px; height: 64px; border-radius: 18px; background: rgba(255,209,102,0.12); display: flex; align-items: center; justify-content: center;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#FFD166" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3l4 2 4-2 4 4-3 3v11H7V10L4 7z"></path></svg></span>
+<span style="display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 22px; color: #FFFFFF;">Wear cotton clothes</span><span style="font-size: 17px; line-height: 1.55; color: #C9C3D8;">Avoid loose synthetic clothing — it catches fire easily.</span></span>
+</div>
+<div style="display: flex; gap: 20px; padding: 28px; border-radius: 22px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+<span style="flex: none; width: 64px; height: 64px; border-radius: 18px; background: rgba(255,209,102,0.12); display: flex; align-items: center; justify-content: center;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#FFD166" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="3"></circle><circle cx="17" cy="9" r="2"></circle><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"></path><path d="M15 20c0-2.5 1-4 3-4s3 1.5 3 4"></path></svg></span>
+<span style="display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 22px; color: #FFFFFF;">Adults supervise children</span><span style="font-size: 17px; line-height: 1.55; color: #C9C3D8;">Children should enjoy fireworks only with an adult beside them.</span></span>
+</div>
+<div style="display: flex; gap: 20px; padding: 28px; border-radius: 22px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+<span style="flex: none; width: 64px; height: 64px; border-radius: 18px; background: rgba(255,209,102,0.12); display: flex; align-items: center; justify-content: center;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#FFD166" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M5.5 5.5l13 13"></path></svg></span>
+<span style="display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 22px; color: #FFFFFF;">Never relight a dud</span><span style="font-size: 17px; line-height: 1.55; color: #C9C3D8;">Wait, then soak it in water. Never go back to a cracker that failed.</span></span>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="width: 100%; box-sizing: border-box; margin: 0; padding: 40px clamp(16px, 4vw, 72px) 100px;">
+<h2 style="margin: 0 0 56px; text-align: center; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: clamp(34px, 4.5vw, 64px);">Happy buyers <span style="color: {{accent}};">across India</span></h2>
+<div class="fw-g4">
+<sc-for list="{{reviews}}" as="r" hint-placeholder-count="4">
+<figure style="margin: 0; padding: 36px 36px 32px; border-radius: 24px; background: linear-gradient(180deg, #150A26, #0E0A2E); border: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 16px; min-height: 380px; box-sizing: border-box;">
+<span style="align-self: flex-start; padding: 4px 10px; border-radius: 999px; background: rgba(255,209,102,0.14); border: 1px solid rgba(255,209,102,0.4); font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: #FFD166;">SAMPLE REVIEW</span>
+<span style="font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 24px; color: #FFFFFF;">{{r.title}}</span>
+<blockquote style="margin: 0; font-weight: 300; font-size: 19px; line-height: 1.6; color: #C9C3D8;">{{r.text}}</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 14px; margin-top: 8px;">
+<span style="width: 52px; height: 52px; border-radius: 50%; background: {{r.tint}}; color: #1A1030; display: flex; align-items: center; justify-content: center; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 22px;">{{r.initial}}</span>
+<span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 20px; color: #FFFFFF;">{{r.name}}</span><span style="font-size: 14px; letter-spacing: 1px; color: #B9B3C9;">{{r.role}}</span></span>
+</figcaption>
+<span style="margin-top: auto; display: flex; align-items: center; gap: 12px; font-size: 18px; color: #C9C3D8;"><span style="color: #FFC21A; font-size: 22px; letter-spacing: 2px;" aria-label="5 out of 5 stars">★★★★★</span>{{r.date}}</span>
+</figure>
+</sc-for>
+</div>
+</section>
+
+<!-- PRICE LIST DOWNLOAD -->
+<section id="pricelist" style="width: 100%; box-sizing: border-box; padding: 20px clamp(16px, 4vw, 72px) 60px;">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px; padding: 48px clamp(24px, 4vw, 64px); border-radius: 32px; background: linear-gradient(110deg, #FFD166 0%, #FFB238 100%); color: #1A1030;">
+<div style="display: flex; align-items: center; gap: 28px; flex: 1 1 520px;">
+<span style="flex: none; width: 88px; height: 88px; border-radius: 24px; background: #1A1030; display: flex; align-items: center; justify-content: center;"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#FFD166" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><path d="M14 3v6h6"></path><path d="M12 12v6M9 15l3 3 3-3"></path></svg></span>
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<span style="font-family: 'Nunito', sans-serif; font-weight: 800; font-size: clamp(28px, 3vw, 44px); line-height: 1.1;">Get the {{season}} Price List</span>
+<span style="font-size: 18px; color: #3A2E10;">Full product list with retail and dealer rates · PDF · Updated [DATE]</span>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 14px;">
+<a href="#pricelist" download="" style="display: flex; align-items: center; gap: 10px; min-height: 58px; padding: 0 32px; border-radius: 999px; background: #1A1030; color: #FFFFFF; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 18px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"></path></svg>Download PDF</a>
+<a href="#enquire" onClick="{{dealerEnq}}" style="display: flex; align-items: center; min-height: 58px; padding: 0 28px; border-radius: 999px; border: 2px solid #1A1030; color: #1A1030; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 18px;">Dealer enquiry</a>
+</div>
+</div>
+</section>
+
+<!-- CTA STATEMENT -->
+<section id="enquire" class="fw-cta" style="padding: 140px clamp(16px, 4vw, 72px); text-align: center;">
+<div style="max-width: 1400px; margin: 0 auto;">
+<p style="margin: 0; font-family: 'Nunito', sans-serif; font-weight: 300; font-size: clamp(28px, 3.6vw, 52px); line-height: 1.35; color: #A8A1BA;"><span style="color: #FFFFFF;">{{brand}} Fireworks</span> brings over 15 years of craftsmanship from <span style="color: #FFFFFF;">Jaunpur, Uttar Pradesh</span>. We create safe, tested, and vibrant crackers that light up every celebration with colour and joy.</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 48px;">
+<a href="#enquire" onClick="{{openEnq}}" style="display: flex; align-items: center; min-height: 56px; padding: 0 36px; background: {{accent}}; border-radius: 999px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 18px;">Enquire Now</a>
+<a href="NewArrivals.dc.html" style="display: flex; align-items: center; min-height: 56px; padding: 0 36px; border: 1.5px solid {{accent}}; border-radius: 999px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 18px; background: rgba(10,6,18,0.5);">See New Arrivals</a>
+</div>
+</div>
+</section>
+
+<!-- BLOGS -->
+<section style="width: 100%; box-sizing: border-box; margin: 0; padding: 40px clamp(16px, 4vw, 72px) 60px;">
+<div style="text-align: center; padding-bottom: 48px;">
+<p style="margin: 0 0 12px; display: inline-flex; align-items: center; gap: 10px; font-size: 16px; letter-spacing: 5px; color: #D8D3E6;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #6C5CF0;"></span><span style="width: 6px; height: 6px; border-radius: 50%; background: #FFFFFF;"></span>EXPLORE BLOGS</p>
+<h2 style="margin: 0; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: clamp(34px, 4.5vw, 64px);">The Spark Behind the Celebration</h2>
+</div>
+<div class="fw-g4" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+<sc-for list="{{blogs}}" as="b" hint-placeholder-count="3">
+<a href="#blog" style="display: flex; flex-direction: column; gap: 18px; padding: 16px 16px 32px; border-radius: 24px; background: #050B24; border: 1px solid rgba(255,255,255,0.06);">
+<img src="{{b.img}}" alt="" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 16px;">
+<span style="display: flex; flex-wrap: wrap; gap: 10px; padding: 8px 16px 0;"><span style="padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.1); font-size: 15px; color: #D8D3E6;">{{b.tag1}}</span><span style="padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.1); font-size: 15px; color: #D8D3E6;">{{b.tag2}}</span></span>
+<span style="padding: 0 16px; font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 26px; line-height: 1.3; color: #FFFFFF;">{{b.title}}</span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<!-- MARQUEE -->
+<div style="overflow: hidden; padding: 40px 0 60px;" aria-hidden="true">
+<div class="fw-marquee" style="display: flex; width: max-content; gap: 48px; font-family: 'Nunito', sans-serif; font-weight: 600; font-size: clamp(40px, 5vw, 76px); color: rgba(255,255,255,0.22); white-space: nowrap;">
+<span>Kids Fancy Fireworks</span><span style="color: {{accent}};">✱</span><span>Safe Fireworks India</span><span style="color: {{accent}};">✱</span><span>Factory Direct Prices</span><span style="color: {{accent}};">✱</span><span>Green Crackers</span><span style="color: {{accent}};">✱</span>
+<span>Kids Fancy Fireworks</span><span style="color: {{accent}};">✱</span><span>Safe Fireworks India</span><span style="color: {{accent}};">✱</span><span>Factory Direct Prices</span><span style="color: {{accent}};">✱</span><span>Green Crackers</span><span style="color: {{accent}};">✱</span>
+</div>
+</div>
+
+<!-- FAQ (light section) -->
+<section style="background: #FFFFFF; color: #141225; padding: 100px 24px;">
+<div style="max-width: 1100px; margin: 0 auto;">
+<h2 style="margin: 0 0 56px; text-align: center; font-family: 'Nunito', sans-serif; font-weight: 600; font-size: clamp(34px, 4.5vw, 64px);">Frequently Asked Questions</h2>
+<div class="fw-g2" style="align-items: start;">
+<sc-for list="{{faqs}}" as="f" hint-placeholder-count="8">
+<div style="border-radius: 28px; background: #F6F6F8;">
+<button onClick="{{f.toggle}}" aria-expanded="{{f.open}}" style="width: 100%; min-height: 76px; padding: 20px clamp(16px, 4vw, 72px); display: flex; align-items: center; justify-content: space-between; gap: 16px; background: transparent; border: 0; cursor: pointer; text-align: left; font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 19px; color: #141225;">{{f.q}}<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; transition: transform 0.2s; transform: rotate({{f.rot}});"><path d="M6 9l6 6 6-6"></path></svg></button>
+<sc-if value="{{f.open}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; padding: 0 32px 24px; font-size: 17px; line-height: 1.6; color: #4A4660;">{{f.a}}</p>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- RAINBOW STRIP -->
+<div style="display: flex; height: 5px;" aria-hidden="true"><span style="flex: 1; background: #1E45F5;"></span><span style="flex: 1; background: #4FD3F5;"></span><span style="flex: 1; background: #E05252;"></span><span style="flex: 1; background: #F59CF0;"></span><span style="flex: 1; background: #A8D46A;"></span></div>
+
+<!-- FOOTER -->
+<footer style="background: #0A0E2E;">
+<div class="fw-foot" style="width: 100%; box-sizing: border-box; margin: 0; padding: 96px clamp(16px, 4vw, 72px) 72px;">
+<div style="display: flex; flex-direction: column; gap: 24px;">
+<svg width="120" height="120" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,4 61,37 96,37 68,58 78,92 50,71 22,92 32,58 4,37 39,37" fill="{{accent}}" stroke="#FFD166" stroke-width="4" stroke-linejoin="round"></polygon><circle cx="50" cy="52" r="10" fill="#FFFFFF"></circle></svg>
+<p style="margin: 16px 0 0; display: flex; gap: 12px; font-size: 17px; line-height: 1.6; color: #C9C3D8;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C6CF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 3px;"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>[Street address], [City] - [PIN], [State]</p>
+<p style="margin: 0; display: flex; gap: 12px; font-size: 19px; color: #FFFFFF;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7C6CF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>[enquiry@yourdomain.com]</p>
+<p style="margin: 0; display: flex; gap: 12px; font-size: 19px; color: #FFFFFF;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7C6CF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg>[+91 00000 00000]</p>
+<div style="display: flex; gap: 12px; margin-top: 8px;">
+<a href="#facebook" aria-label="Facebook" style="width: 52px; height: 52px; border-radius: 50%; background: #4B3BD6; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h-3a4 4 0 0 0-4 4v3H6v4h2v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h2z"></path></svg></a>
+<a href="#youtube" aria-label="YouTube" style="width: 52px; height: 52px; border-radius: 50%; background: #4B3BD6; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"></rect><path d="M10 9l5 3-5 3z"></path></svg></a>
+<a href="#instagram" aria-label="Instagram" style="width: 52px; height: 52px; border-radius: 50%; background: #4B3BD6; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8"></circle></svg></a>
+</div>
+</div>
+<nav aria-label="Quick links" style="display: flex; flex-direction: column; gap: 18px; font-size: 19px;">
+<span style="font-weight: 500; font-size: 15px; letter-spacing: 3px; color: #FF5A6E;">QUICK LINKS</span>
+<a href="#about">About Us</a><a href="Category.dc.html">Products</a><a href="#safety-checklist">Safety Tips</a><a href="Gallery.dc.html">Gallery</a><a href="Combos.dc.html">Combo Boxes</a><a href="Offers.dc.html">Offers</a><a href="NewArrivals.dc.html">New Arrivals</a><a href="Category.dc.html">Gift Boxes</a>
+</nav>
+<nav aria-label="Categories" style="display: flex; flex-direction: column; gap: 18px; font-size: 19px;">
+<span style="font-weight: 500; font-size: 15px; letter-spacing: 3px; color: #FF5A6E;">CATEGORIES</span>
+<a href="Category.dc.html">Traditional Crackers</a><a href="Category.dc.html">Garland Crackers</a><a href="Category.dc.html">Ground Chakkars</a><a href="Category.dc.html">Sparklers</a><a href="Category.dc.html">Flower Pots</a><a href="Fountains.dc.html">Fountains</a><a href="EliteSeries.dc.html">Elite Series</a>
+</nav>
+<nav aria-label="Company" style="display: flex; flex-direction: column; gap: 18px; font-size: 19px;">
+<span style="font-weight: 500; font-size: 15px; letter-spacing: 3px; color: #FF5A6E;">COMPANY</span>
+<a href="Bulk.dc.html">Bulk Orders &amp; Dealers</a><a href="Contact.dc.html">Where To Buy?</a><a href="#blog">Blogs</a><a href="Contact.dc.html">Contact</a>
+</nav>
+</div>
+<div style="background: #050505;">
+<div style="width: 100%; box-sizing: border-box; margin: 0; padding: 24px clamp(16px, 4vw, 72px); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 16px; letter-spacing: 1px; color: #B9B3C9;">
+<span>Copyright © 2026 {{brand}} Fireworks. All rights reserved.</span>
+<span>[Developer credit]</span>
+</div>
+</div>
+</footer>
+<a href="#whatsapp" class="fw-wa" aria-label="Chat with us on WhatsApp" style="position: fixed; right: 24px; bottom: 24px; z-index: 50; display: flex; align-items: center; gap: 10px; min-height: 60px; padding: 0 22px 0 16px; border-radius: 999px; background: #25D366; color: #0B2E17; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 17px; box-shadow: 0 12px 30px rgba(0,0,0,0.4);">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0B2E17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.7 7.1L4 20l1-4.1A8 8 0 1 1 20 12z"></path><path d="M9 9.5c.3 2.2 2.3 4.2 4.5 4.6l1.2-1.1 1.8.8-.3 1.6c-3.8.3-7.6-3.4-7.3-7.3l1.6-.3.8 1.8z"></path></svg>
+<span class="fw-wa-label">WhatsApp us</span>
+</a>
+<sc-if value="{{enqOpen}}" hint-placeholder-val="{{ false }}">
+<div class="fw-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; background: rgba(5,3,12,0.78);">
+<button onClick="{{enqClose}}" aria-label="Close enquiry form" tabindex="-1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; background: transparent; cursor: default;"></button>
+<div role="dialog" aria-modal="true" aria-labelledby="fw-enq-title" class="fw-dialog" style="position: relative; width: 100%; max-width: 640px; max-height: 100%; overflow-y: auto; box-sizing: border-box; padding: 36px clamp(20px, 4vw, 40px); border-radius: 28px; background: linear-gradient(180deg, #1A0C2E, #100A28); border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 30px 80px rgba(0,0,0,0.6); color: #F5F3FA; font-family: 'Roboto', system-ui, sans-serif;">
+<button onClick="{{enqClose}}" aria-label="Close" style="position: absolute; top: 18px; right: 18px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+<sc-if value="{{enqNotSent}}" hint-placeholder-val="{{ true }}">
+<p style="margin: 0 0 8px; font-size: 14px; letter-spacing: 4px; color: #FFD166;">GET IN TOUCH</p>
+<h2 id="fw-enq-title" style="margin: 0 0 8px; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 34px;">Send an Enquiry</h2>
+<p style="margin: 0 0 24px; font-size: 17px; line-height: 1.5; color: #C9C3D8;">Tell us what you need and our team will call you back with prices and availability.</p>
+<form onSubmit="{{enqSubmit}}" novalidate="" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;" class="fw-enqform">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: #C9C3D8;">Full name <span style="color: #FF8A9B;">*</span><input type="text" value="{{enq.name}}" onChange="{{enqSet.name}}" placeholder="Your name" style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1px solid {{enqErr.nameBorder}}; background: #0A0612; color: #FFFFFF; font-size: 16px; font-family: inherit; width: 100%; box-sizing: border-box;"><sc-if value="{{enqErr.name}}" hint-placeholder-val="{{ false }}"><span style="font-size: 14px; color: #FF8A9B;">{{enqErr.nameMsg}}</span></sc-if></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: #C9C3D8;">Phone number <span style="color: #FF8A9B;">*</span><input type="tel" value="{{enq.phone}}" onChange="{{enqSet.phone}}" placeholder="10-digit mobile" style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1px solid {{enqErr.phoneBorder}}; background: #0A0612; color: #FFFFFF; font-size: 16px; font-family: inherit; width: 100%; box-sizing: border-box;"><sc-if value="{{enqErr.phone}}" hint-placeholder-val="{{ false }}"><span style="font-size: 14px; color: #FF8A9B;">{{enqErr.phoneMsg}}</span></sc-if></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: #C9C3D8;">Email<input type="email" value="{{enq.email}}" onChange="{{enqSet.email}}" placeholder="Optional" style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: #0A0612; color: #FFFFFF; font-size: 16px; font-family: inherit; width: 100%; box-sizing: border-box;"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: #C9C3D8;">City<input type="text" value="{{enq.city}}" onChange="{{enqSet.city}}" placeholder="e.g. Chennai" style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: #0A0612; color: #FFFFFF; font-size: 16px; font-family: inherit; width: 100%; box-sizing: border-box;"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: #C9C3D8; grid-column: 1 / -1;">I am enquiring for
+<span style="display: flex; flex-wrap: wrap; gap: 8px;">
+<sc-for list="{{enqTypes}}" as="t" hint-placeholder-count="4"><button type="button" onClick="{{t.pick}}" aria-pressed="{{t.active}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1.5px solid {{t.border}}; background: {{t.bg}}; color: #FFFFFF; font-size: 15px; font-weight: 500; cursor: pointer;">{{t.label}}</button></sc-for>
+</span></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: #C9C3D8; grid-column: 1 / -1;">Products / box interested in<input type="text" value="{{enq.product}}" onChange="{{enqSet.product}}" placeholder="e.g. Family Box ₹1000, sparklers" style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: #0A0612; color: #FFFFFF; font-size: 16px; font-family: inherit; width: 100%; box-sizing: border-box;"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: #C9C3D8; grid-column: 1 / -1;">Message<textarea rows="3" value="{{enq.message}}" onChange="{{enqSet.message}}" placeholder="Quantity, delivery date, anything else…" style="padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: #0A0612; color: #FFFFFF; font-size: 16px; font-family: inherit; resize: vertical;"></textarea></label>
+<button type="submit" style="grid-column: 1 / -1; min-height: 58px; border: 0; border-radius: 999px; background: {{accent}}; color: #FFFFFF; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 18px; cursor: pointer;">Send Enquiry</button>
+<p style="grid-column: 1 / -1; margin: 0; font-size: 14px; color: #B9B3C9; text-align: center;">Prefer to talk? Call [+91 00000 00000] or WhatsApp us.</p>
+</form>
+</sc-if>
+<sc-if value="{{enqSent}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 24px 0; text-align: center;">
+<span style="width: 84px; height: 84px; border-radius: 50%; background: rgba(37,211,102,0.15); display: flex; align-items: center; justify-content: center;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>
+<h2 id="fw-enq-title" style="margin: 0; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 32px;">Thank you, {{enq.name}}!</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.5; color: #C9C3D8;">We've received your enquiry and will call you on {{enq.phone}} shortly.<br>(Demo — nothing was actually sent.)</p>
+<button onClick="{{enqClose}}" style="margin-top: 8px; min-height: 52px; padding: 0 32px; border: 0; border-radius: 999px; background: {{accent}}; color: #FFFFFF; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 17px; cursor: pointer;">Done</button>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"brand":{"editor":"text","default":"Your Brand"},"accent":{"editor":"color","default":"#E3112F","options":["#E3112F","#FF6B1A","#D61F69","#4B3BD6"]},"$preview":{"width":1440,"height":10600}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { cart: {}, toast: '', cat: 0, prod: 0, faq: -1, menu: false, w: (typeof window !== 'undefined' ? window.innerWidth : 1440) };
+  }
+  componentDidMount() {
+    this.onResize = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('resize', this.onResize);
+    const v = document.querySelector('.fw-hero-video');
+    if (v) { v.muted = true; const p = v.play && v.play(); if (p && p.catch) p.catch(() => {}); }
+    this.startSliders();
+    this.cartListen();
+    const j = document.querySelector('.fw-journey');
+    if (j) {
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce && 'IntersectionObserver' in window) {
+        j.classList.add('fw-armed');
+        this.jObs = new IntersectionObserver((entries) => {
+          entries.forEach((en) => { if (en.isIntersecting) { j.classList.add('fw-lit'); this.jObs.disconnect(); } });
+        }, { threshold: 0.35 });
+        this.jObs.observe(j);
+      } else { j.classList.add('fw-lit'); }
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    if (this.raf) cancelAnimationFrame(this.raf);
+    (this.cleanups || []).forEach((fn) => fn());
+    this.cartUnlisten();
+    if (this.jObs) this.jObs.disconnect();
+  }
+  cartRead() {
+    try { const raw = window.localStorage.getItem('fw-cart'); if (raw) return JSON.parse(raw) || {}; } catch (e) {}
+    return window.__fwCart || {};
+  }
+  cartWrite(cart) {
+    window.__fwCart = cart;
+    try { window.localStorage.setItem('fw-cart', JSON.stringify(cart)); } catch (e) {}
+    this.setState({ cart: cart });
+  }
+  cartAdd(p, qty) {
+    const cart = Object.assign({}, this.cartRead());
+    const cur = cart[p.name];
+    cart[p.name] = { name: p.name, img: p.img, price: p.price, qty: (cur ? cur.qty : 0) + (qty || 1) };
+    this.cartWrite(cart);
+    this.showToast(p.name.split(' - ')[0] + ' added to cart');
+  }
+  cartSet(name, qty) {
+    const cart = Object.assign({}, this.cartRead());
+    if (!cart[name]) return;
+    if (qty <= 0) { delete cart[name]; } else { cart[name] = Object.assign({}, cart[name], { qty: qty }); }
+    this.cartWrite(cart);
+  }
+  cartCount() {
+    const c = this.state.cart || {};
+    return Object.keys(c).reduce((n, k) => n + c[k].qty, 0);
+  }
+  showToast(text) {
+    clearTimeout(this.toastT);
+    this.setState({ toast: text });
+    this.toastT = setTimeout(() => this.setState({ toast: '' }), 2600);
+  }
+  cartListen() {
+    this.setState({ cart: this.cartRead() });
+    this.onStorage = (e) => { if (!e || e.key === 'fw-cart') this.setState({ cart: this.cartRead() }); };
+    this.onVis = () => this.setState({ cart: this.cartRead() });
+    window.addEventListener('storage', this.onStorage);
+    window.addEventListener('focus', this.onVis);
+    document.addEventListener('visibilitychange', this.onVis);
+  }
+  cartUnlisten() {
+    window.removeEventListener('storage', this.onStorage);
+    window.removeEventListener('focus', this.onVis);
+    document.removeEventListener('visibilitychange', this.onVis);
+    clearTimeout(this.toastT);
+  }
+  startSliders() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const SPEED = 0.6;
+    const PAUSE_AFTER_USER = 2000;
+    this.cleanups = [];
+    this.sliders = Array.prototype.slice.call(document.querySelectorAll('.fw-viewport')).map((el) => {
+      const s = { el: el, dir: el.getAttribute('data-dir') === 'rev' ? -1 : 1, pos: 0, hover: false, last: 0, drag: null, init: false };
+      const touch = () => { s.last = Date.now(); };
+      const enter = () => { s.hover = true; };
+      const leave = () => { s.hover = false; s.last = Date.now(); };
+      const down = (e) => {
+        if (e.pointerType !== 'mouse' || e.button !== 0) { touch(); return; }
+        s.drag = { x: e.clientX, start: el.scrollLeft, moved: false };
+      };
+      const move = (e) => {
+        if (!s.drag) return;
+        const dx = e.clientX - s.drag.x;
+        if (Math.abs(dx) > 5) { s.drag.moved = true; el.classList.add('fw-dragging'); }
+        el.scrollLeft = s.drag.start - dx;
+        s.pos = el.scrollLeft;
+      };
+      const up = () => {
+        if (!s.drag) return;
+        s.drag = null; s.last = Date.now();
+        setTimeout(() => el.classList.remove('fw-dragging'), 0);
+      };
+      el.addEventListener('mouseenter', enter);
+      el.addEventListener('mouseleave', leave);
+      el.addEventListener('wheel', touch, { passive: true });
+      el.addEventListener('touchstart', touch, { passive: true });
+      el.addEventListener('touchmove', touch, { passive: true });
+      el.addEventListener('pointerdown', down);
+      window.addEventListener('pointermove', move);
+      window.addEventListener('pointerup', up);
+      this.cleanups.push(() => {
+        el.removeEventListener('mouseenter', enter); el.removeEventListener('mouseleave', leave);
+        el.removeEventListener('wheel', touch); el.removeEventListener('touchstart', touch);
+        el.removeEventListener('touchmove', touch); el.removeEventListener('pointerdown', down);
+        window.removeEventListener('pointermove', move); window.removeEventListener('pointerup', up);
+      });
+      return s;
+    });
+    const tick = () => {
+      const now = Date.now();
+      this.sliders.forEach((s) => {
+        const el = s.el;
+        const half = el.scrollWidth / 2;
+        if (!half || el.clientWidth === 0) return;
+        if (!s.init) { s.pos = s.dir < 0 ? half : 0; el.scrollLeft = s.pos; s.init = true; }
+        const userBusy = s.hover || s.drag || (now - s.last < PAUSE_AFTER_USER);
+        if (!userBusy && !reduce) { s.pos += s.dir * SPEED; } else { s.pos = el.scrollLeft; }
+        if (s.pos >= half) s.pos -= half;
+        if (s.pos <= 0) s.pos += half;
+        if (Math.abs(el.scrollLeft - s.pos) >= 0.5) el.scrollLeft = s.pos;
+      });
+      this.raf = requestAnimationFrame(tick);
+    };
+    this.raf = requestAnimationFrame(tick);
+  }
+  openEnquiry(product, type) {
+    this.setState({
+      enqOpen: true, enqSent: false, enqTried: false,
+      enq: Object.assign({ name: '', phone: '', email: '', city: '', product: '', message: '', type: 'Retail purchase' }, this.state.enq || {}, { product: product || (this.state.enq && this.state.enq.product) || '', type: type || (this.state.enq && this.state.enq.type) || 'Retail purchase' })
+    });
+  }
+  enqVals() {
+    const enq = this.state.enq || { name: '', phone: '', email: '', city: '', product: '', message: '', type: 'Retail purchase' };
+    const tried = this.state.enqTried;
+    const nameBad = tried && enq.name.trim().length < 2;
+    const phoneBad = tried && enq.phone.replace(/\D/g, '').length < 10;
+    const set = {};
+    ['name', 'phone', 'email', 'city', 'product', 'message'].forEach((k) => {
+      set[k] = (e) => this.setState({ enq: Object.assign({}, this.state.enq || enq, { [k]: e.target.value }) });
+    });
+    const types = ['Retail purchase', 'Bulk / dealer', 'Corporate gifting', 'Wedding / event'];
+    return {
+      enqOpen: !!this.state.enqOpen,
+      enqSent: !!this.state.enqSent,
+      enqNotSent: !this.state.enqSent,
+      enq: enq,
+      enqSet: set,
+      enqErr: {
+        name: nameBad, nameMsg: 'Please enter your name', nameBorder: nameBad ? '#FF8A9B' : 'rgba(255,255,255,0.2)',
+        phone: phoneBad, phoneMsg: 'Please enter a 10-digit phone number', phoneBorder: phoneBad ? '#FF8A9B' : 'rgba(255,255,255,0.2)'
+      },
+      enqTypes: types.map((t) => ({
+        label: t, active: enq.type === t,
+        bg: enq.type === t ? (this.props.accent ?? '#E3112F') : 'transparent',
+        border: enq.type === t ? (this.props.accent ?? '#E3112F') : 'rgba(255,255,255,0.25)',
+        pick: () => this.setState({ enq: Object.assign({}, enq, { type: t }) })
+      })),
+      enqClose: () => this.setState({ enqOpen: false, enqTried: false, enqSent: false, enq: this.state.enqSent ? null : this.state.enq }),
+      enqSubmit: (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        const ok = enq.name.trim().length >= 2 && enq.phone.replace(/\D/g, '').length >= 10;
+        this.setState(ok ? { enqSent: true, enqTried: false } : { enqTried: true });
+      },
+      openEnq: (e) => { if (e && e.preventDefault) e.preventDefault(); this.openEnquiry(); }
+    };
+  }
+  renderVals() {
+    const w = this.state.w || 1440;
+    const per = w < 640 ? 2 : (w < 1100 ? 4 : 6);
+    const gap = 24;
+    const cardW = 'calc((100% - ' + ((per - 1) * gap) + 'px) / ' + per + ')';
+    const shift = (i) => 'calc(' + (-i) + ' * ((100% - ' + ((per - 1) * gap) + 'px) / ' + per + ' + ' + gap + 'px))';
+
+    const categories = [
+      { name: 'CHILDREN\nFANCY\nFIREWORKS', bg: '#EFCDEB', bg2: '#A68BC4', ink: '#8A5BB5', img: '/_blob/02d9c1923a81e03951f252bc89af3d42' },
+      { name: 'UNIQUE\nAERIAL\nFIREWORKS', bg: '#D3F4EF', bg2: '#73D6CB', ink: '#1E9C8F', img: '/_blob/14ff7b846c5fce428ee34c64eecd7f27' },
+      { name: 'TRADITIONAL\nFIREWORKS', bg: '#F8D8EA', bg2: '#F27FB5', ink: '#D0245E', img: '/_blob/609ec5c1049b9af1f731f191f45a59dd' },
+      { name: 'FOUNTAINS', bg: '#FDE6B4', bg2: '#F7AE5E', ink: '#C26408', img: '/_blob/9ea557fff8ba1686eadfa62176359a69' },
+      { name: 'SPARKLERS', bg: '#DFF3A8', bg2: '#97CE5A', ink: '#3D7F14', img: '/_blob/515dabd19c73980ca4524edaedbd9197' },
+      { name: 'ELITE\nFIREWORKS', bg: '#B8E8F8', bg2: '#4796D8', ink: '#1F66A8', img: '/_blob/83b772447902227e94c1b897887c4185' },
+      { name: 'GIFT\nBOXES', bg: '#FFD6CC', bg2: '#F2785C', ink: '#C9432A', img: '/_blob/80d166e1b825edd8bf7f4bef8ddbd0e2' },
+      { name: 'SKY\nSHOTS', bg: '#E0DBFF', bg2: '#8C7CF0', ink: '#5A49D6', img: '/_blob/b4133cfc8c5abbc9e6c6d8d789230cd1' }
+    ];
+    const products = [
+      { name: 'Colour Fountain - [Pack size]', img: '/_blob/41c0e96712cbe4b571e6c72bd76c3ab9' },
+      { name: 'Flower Pot Candles - [Pack size]', img: '/_blob/2fee0fc8d48fecc7f379c2cebbff9bc5' },
+      { name: 'Red Bomb - [Pack size]', img: '/_blob/4fb0cfbe2433e9a5ffa26554f672ae90' },
+      { name: 'Gold Sparklers - [Pack size]', img: '/_blob/3e79f52ce9d345662d617d1436652153' },
+      { name: 'Sky Rockets - [Pack size]', img: '/_blob/14ff7b846c5fce428ee34c64eecd7f27' },
+      { name: 'Festive Crackers - [Pack size]', img: '/_blob/80d166e1b825edd8bf7f4bef8ddbd0e2' },
+      { name: 'Garland Crackers - [Pack size]', img: '/_blob/609ec5c1049b9af1f731f191f45a59dd' },
+      { name: 'Kids Fancy Combo - [Pack size]', img: '/_blob/02d9c1923a81e03951f252bc89af3d42' }
+    ];
+    const catMax = Math.max(0, categories.length - per);
+    const prodMax = Math.max(0, products.length - per);
+    const cat = Math.min(this.state.cat, catMax);
+    const prod = Math.min(this.state.prod, prodMax);
+
+    const B = (this.props.brand ?? 'Your Brand') + ' Fireworks';
+    const faqList = [
+      ['What do you mean by Green Crackers?', 'Green crackers are eco-friendlier fireworks developed under CSIR-NEERI guidelines. They use cleaner raw materials and produce noticeably less smoke, dust and noise than regular crackers. Certified green crackers carry the CSIR-NEERI green logo and a QR code on the box, so you can check them before you buy.'],
+      ['Which is the fireworks capital of India?', 'Sivakasi in Tamil Nadu is known as the fireworks capital of India. Most of the country’s crackers are made there, and we source many of our products from trusted Sivakasi manufacturers.'],
+      ['What is the speciality of ' + B + '?', 'We offer a complete range under one roof — traditional crackers, kids’ fancy items, fountains, sparklers, aerial sky shots and ready-made combo boxes for every budget. Every product is chosen for colour, safety and value, and our team helps you pick the right mix for your celebration.'],
+      ['When was ' + B + ' started?', B + ' was started in 2010 in Jaunpur, Uttar Pradesh. For over 15 years we have been helping families, shops and event planners celebrate Diwali, weddings and other festivals.'],
+      ['How can we buy your crackers?', 'You can visit our shop in Jaunpur, add products to your cart on this website and place an order enquiry, send us an enquiry form, or message us on WhatsApp. Our team will call you to confirm stock, price and delivery.'],
+      ['Are your products available throughout the year?', 'Yes. We supply crackers all year for weddings, birthdays, New Year and other events. Our full Diwali range is available from September to November — we recommend booking early, as popular items sell out before the festival.'],
+      ['How to contact us for enquiries?', 'Call or WhatsApp us on [+91 00000 00000], email [enquiry@yourdomain.com], or click “Enquire Now” on any page and fill in the short form. We usually reply the same day.'],
+      ['Do you supply in bulk to retailers?', 'Yes. We supply shops, wholesalers, seasonal stalls, corporate buyers and event planners at dealer rates. Visit our Bulk Orders page to download the wholesale price list or register as a dealer, and our team will contact you.']
+    ];
+    const faqs = faqList.map((f, i) => ({
+      q: f[0], a: f[1], open: this.state.faq === i, rot: this.state.faq === i ? '180deg' : '0deg',
+      toggle: () => this.setState({ faq: this.state.faq === i ? -1 : i })
+    }));
+
+    return {
+      ...this.enqVals(),
+      cartCount: this.cartCount(),
+      hasCart: this.cartCount() > 0,
+      toastOn: !!this.state.toast,
+      toastText: this.state.toast || '',
+      brand: this.props.brand ?? 'Your Brand',
+      accent: this.props.accent ?? '#E3112F',
+      menuOpen: this.state.menu,
+      toggleMenu: () => this.setState({ menu: !this.state.menu }),
+      categories: categories,
+      categoryLoop: categories.concat(categories).map((c) => ({ img: c.img, label: c.name.replace(/\n/g, ' ') })),
+      products: products,
+      productLoop: products.concat(products),
+      cardW: cardW,
+      catShift: shift(cat),
+      prodShift: shift(prod),
+      catPrev: () => this.setState({ cat: Math.max(0, cat - 1) }),
+      catNext: () => this.setState({ cat: cat >= catMax ? 0 : cat + 1 }),
+      prodPrev: () => this.setState({ prod: Math.max(0, prod - 1) }),
+      prodNext: () => this.setState({ prod: prod >= prodMax ? 0 : prod + 1 }),
+      quick: [
+        { title: 'Aerial Fireworks', text: 'Sky bursts with loud colours and patterns.', cta: 'Explore', href: 'Category.dc.html' },
+        { title: 'Gift Boxes', text: 'Curated boxes — perfect for celebrations and corporate gifting.', cta: 'Explore', href: 'Category.dc.html' },
+        { title: 'New Arrivals', text: 'Latest launches and unique crackers for this season.', cta: 'Explore', href: 'NewArrivals.dc.html' },
+        { title: 'Safety Tips', text: 'How to enjoy safely — essential guidance for families and retailers.', cta: 'Read', href: '#safety-checklist' }
+      ],
+      stats: [
+        { num: '15+', label: 'Years of experience', text: 'Serving festivals and celebrations since 2010 from Jaunpur, Uttar Pradesh.' },
+        { num: '8', label: 'Product categories', text: 'Traditional, kids’ fancy, aerial, fountains, sparklers, elite, gift boxes and sky shots.' },
+        { num: '5', label: 'Occasions covered', text: 'Diwali, weddings, birthdays, corporate gifting and New Year — a pack for every celebration.' }
+      ],
+      reviews: [
+        { title: 'Kids loved the fountains', text: 'Ordered the Family Box for Diwali. Everything arrived well packed and on time — the fountains and sparklers were the highlight for the children.', initial: 'P', name: 'Sample customer', role: 'Parent · Jaunpur', tint: '#BFF3E3', date: 'Diwali 2025' },
+        { title: 'Great rates for my shop', text: 'Clear price list, quick replies on WhatsApp and fair dealer rates. Stock reached my shop before the festival rush.', initial: 'R', name: 'Sample customer', role: 'Retailer · Varanasi', tint: '#FFF4C2', date: 'Oct 2025' },
+        { title: 'Perfect for our wedding', text: 'The sky shots for the baraat were bright and colourful. The team helped us choose the right quantity for our budget.', initial: 'A', name: 'Sample customer', role: 'Wedding · Prayagraj', tint: '#FFD9C2', date: 'Feb 2026' },
+        { title: 'Smooth corporate order', text: 'We ordered gift boxes for our staff. Neatly packed, delivered together and the billing was simple.', initial: 'S', name: 'Sample customer', role: 'Office manager · Lucknow', tint: '#C2E9FF', date: 'Nov 2025' }
+      ],
+      blogs: [
+        { tag1: 'Aerial Novelties', tag2: 'Elite Fireworks', title: '[Blog title — e.g. Diwali traditions in a changing world]', img: '/_blob/83b772447902227e94c1b897887c4185' },
+        { tag1: 'Safety', tag2: 'Families', title: '[Blog title — e.g. A safety checklist before you light up]', img: '/_blob/3e79f52ce9d345662d617d1436652153' },
+        { tag1: 'Green Crackers', tag2: 'Guide', title: '[Blog title — e.g. What makes a cracker “green”?]', img: '/_blob/fa4ad7c3185bac90c0cc17c6a3a93d66' }
+      ],
+      occasions: [
+        { name: 'Diwali', text: 'Classic crackers, sparklers and fountains for the festival of lights.', img: '/_blob/fa4ad7c3185bac90c0cc17c6a3a93d66' },
+        { name: 'Wedding', text: 'Grand sky shots for the baraat and reception.', img: '/_blob/83b772447902227e94c1b897887c4185' },
+        { name: 'Birthday', text: 'Kid-friendly sparklers and fancy novelties.', img: '/_blob/515dabd19c73980ca4524edaedbd9197' },
+        { name: 'Corporate', text: 'Gift boxes and bulk orders for teams and clients.', img: '/_blob/80d166e1b825edd8bf7f4bef8ddbd0e2' },
+        { name: 'New Year', text: 'Countdown displays to welcome the year in style.', img: '/_blob/b4133cfc8c5abbc9e6c6d8d789230cd1' }
+      ],
+      combos: [].concat([
+        { name: 'Starter Box', price: '₹500', count: '[XX] items', featured: false, bg: 'rgba(255,255,255,0.04)', border: 'rgba(255,255,255,0.1)', btn: '#4B3BD6', items: ['Sparklers', 'Flower pots', 'Ground chakkars', 'Kids fancy items'] },
+        { name: 'Family Box', price: '₹1000', count: '[XX] items', featured: true, bg: 'linear-gradient(180deg, #2A0F2E, #1A0A2A)', border: '#FFD166', btn: this.props.accent ?? '#E3112F', items: ['Everything in Starter', 'Fountains', 'Rockets', 'Garland crackers'] },
+        { name: 'Grand Celebration', price: '₹2500', count: '[XX] items', featured: false, bg: 'rgba(255,255,255,0.04)', border: 'rgba(255,255,255,0.1)', btn: '#4B3BD6', items: ['Everything in Family', 'Aerial sky shots', 'Elite series', 'Twinkling stars'] }
+      ]).map((b) => Object.assign({}, b, { enquire: (e) => { if (e && e.preventDefault) e.preventDefault(); this.openEnquiry(b.name + ' (' + b.price + ')'); } })),
+      clips: [
+        { name: 'Colour Fountain', img: '/_blob/9ea557fff8ba1686eadfa62176359a69' },
+        { name: 'Gold Sparklers', img: '/_blob/3e79f52ce9d345662d617d1436652153' },
+        { name: 'Garland Crackers', img: '/_blob/609ec5c1049b9af1f731f191f45a59dd' }
+      ],
+      season: 'Diwali 2026',
+      dealerEnq: (e) => { if (e && e.preventDefault) e.preventDefault(); this.openEnquiry('Dealer price list', 'Bulk / dealer'); },
+      milestones: [
+        { n: '01', year: '2010', title: 'Our shop opens in Jaunpur', text: 'Started as a family shop with a small range of festival crackers.' },
+        { n: '02', year: '[Year]', title: 'Combo boxes launched', text: 'Ready-made boxes so every family can celebrate within budget.' },
+        { n: '03', year: '[Year]', title: 'Dealers & bulk supply', text: 'Began supplying shops and stalls across nearby districts.' },
+        { n: '04', year: '[Year]', title: 'Green crackers range', text: 'Added eco-friendlier green crackers with less smoke and noise.' },
+        { n: '05', year: '2026', title: 'Online catalogue & enquiries', text: 'Browse, build your box and enquire from anywhere.' }
+      ].map((m, i) => Object.assign({}, m, { delay: (0.25 + i * 0.4).toFixed(2) + 's', ring: i === 0 || i === 4 ? '#FFD166' : 'rgba(255,209,102,0.55)', yearColor: m.year.charAt(0) === '[' ? '#FFB3BF' : '#FFD166' })),
+      faqs: faqs
+    };
+  }
+}
+</script>
+</body>
+</html>
